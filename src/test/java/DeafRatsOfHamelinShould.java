@@ -22,6 +22,7 @@ public class DeafRatsOfHamelinShould {
     private static class DeafRatsOfHamelin {
         public static int count(String rats) {
             if (isThereAnyRat(rats)) return 0;
+            if (rats.contains("0~")) return 0;
             return 1;
         }
 
