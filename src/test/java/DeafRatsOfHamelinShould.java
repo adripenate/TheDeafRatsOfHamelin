@@ -10,7 +10,7 @@ public class DeafRatsOfHamelinShould {
     }
 
     private static class DeafRatsOfHamelin {
-        public static int count(String p) {
+        public static int count(String rats) {
             return 0;
         }
     }
