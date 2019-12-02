@@ -11,7 +11,7 @@ public class DeafRatsOfHamelinShould {
 
     private static class DeafRatsOfHamelin {
         public static int countDeafRats(String p) {
-            return -1;
+            return 0;
         }
     }
 }
