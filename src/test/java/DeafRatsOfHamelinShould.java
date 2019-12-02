@@ -6,11 +6,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class DeafRatsOfHamelinShould {
     @Test
     public void be_zero_when_they_are_zero() {
-        assertThat(DeafRatsOfHamelin.countDeafRats("P")).isEqualTo(0);
+        assertThat(DeafRatsOfHamelin.count("P")).isEqualTo(0);
     }
 
     private static class DeafRatsOfHamelin {
-        public static int countDeafRats(String p) {
+        public static int count(String p) {
             return 0;
         }
     }
