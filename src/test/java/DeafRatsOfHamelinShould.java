@@ -11,7 +11,7 @@ public class DeafRatsOfHamelinShould {
 
     @Test
     public void be_one_when_it_is_facing_right() {
-        assertThat(DeafRatsOfHamelin.count("P")).isEqualTo(1);
+        assertThat(DeafRatsOfHamelin.count("P ~0")).isEqualTo(1);
     }
 
     private static class DeafRatsOfHamelin {
