@@ -1,10 +1,10 @@
-public class DeafRatsOfHamelin {
-    public static final int NO_DEAF_RATS = 0;
-    public static final String HAMLET = "P";
-    public static final String RAT_FACING_RIGHT = "~0";
+public class Dinglemouse {
+    private static final int NO_DEAF_RATS = 0;
+    private static final String HAMLET = "P";
+    private static final String RAT_FACING_RIGHT = "~0";
     private static final String RAT_FACING_LEFT = "0~";
 
-    public static int count(String rats) {
+    public static int countDeafRats(String rats) {
         if (!thereAreAny(rats)) return NO_DEAF_RATS;
         rats = normalizeSpaces(rats);
         if(isHamelinAtTheFront(rats)){
