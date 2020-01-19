@@ -40,13 +40,14 @@ public class DeafRatsOfHamelinShould {
         public static final int NO_DEAF_RATS = 0;
         public static final String HAMLET = "P";
         public static final String RAT_FACING_RIGHT = "~0";
+        private static final String RAT_FACING_LEFT = "0~";
 
         public static int count(String rats) {
             if (!thereAreAny(rats)) return NO_DEAF_RATS;
             if(isHamelinAtTheFront(rats)){
-                return countRatsFacingRight(rats.replace(" ", ""));
+                return countDeafRats(rats.replace(" ", ""), RAT_FACING_RIGHT);
             }else{
-                return rats.contains(RAT_FACING_RIGHT) ? NO_DEAF_RATS : 1;
+                return countDeafRats(rats.replace(" ", ""), RAT_FACING_LEFT);
             }
         }
 
@@ -54,11 +55,11 @@ public class DeafRatsOfHamelinShould {
             return rats.indexOf(HAMLET) == 0;
         }
 
-        private static int countRatsFacingRight(String rats){
+        private static int countDeafRats(String rats, String deafRat){
             int deafRats = 0;
             while (!rats.equals(HAMLET)){
-                String rat = rats.substring(1, 3);
-                if (rat.equals(RAT_FACING_RIGHT)) deafRats++;
+                String rat = (deafRat.equals(RAT_FACING_RIGHT))? rats.substring(1, 3) : rats.substring(0, 2);
+                if (rat.equals(deafRat)) deafRats++;
                 rats = rats.replaceFirst(rat, "");
             }
             return deafRats;
