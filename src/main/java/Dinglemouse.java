@@ -1,8 +1,8 @@
 public class Dinglemouse {
     private static final int NO_DEAF_RATS = 0;
     private static final String HAMLET = "P";
-    private static final String RAT_FACING_RIGHT = "~0";
-    private static final String RAT_FACING_LEFT = "0~";
+    private static final String RAT_FACING_RIGHT = "~O";
+    private static final String RAT_FACING_LEFT = "O~";
 
     public static int countDeafRats(String rats) {
         if (!thereAreAny(rats)) return NO_DEAF_RATS;
