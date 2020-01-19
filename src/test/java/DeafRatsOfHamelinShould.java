@@ -32,7 +32,7 @@ public class DeafRatsOfHamelinShould {
         public static int count(String rats) {
             if (!thereAreAny(rats)) return NO_DEAF_RATS;
             if(isHamelinAtTheFront(rats)){
-                return rats.contains("0~") ? NO_DEAF_RATS : 1;
+                return countRatsFacingRight(rats);
             }else{
                 return rats.contains("~0") ? NO_DEAF_RATS : 1;
             }
@@ -40,6 +40,15 @@ public class DeafRatsOfHamelinShould {
 
         private static boolean isHamelinAtTheFront(String rats) {
             return rats.indexOf("P") == 0;
+        }
+
+        private static int countRatsFacingRight(String rats){
+            int deafRats = 0;
+            while (rats.contains("~0")){
+                deafRats++;
+                rats = rats.replaceFirst("~0", "");
+            }
+            return deafRats;
         }
 
         private static boolean thereAreAny(String rats) {
