@@ -48,9 +48,17 @@ public class DeafRatsOfHamelinShould {
             rats = normalizeSpaces(rats);
             if(isHamelinAtTheFront(rats)){
                 return countDeafRats(rats, RAT_FACING_RIGHT);
-            }else{
+            }else if (isHamelinAtTheEnd(rats)){
                 return countDeafRats(rats, RAT_FACING_LEFT);
+            }else{
+                int hamelinPosition = searchHamelin(rats);
+                return countDeafRats(rats.substring(hamelinPosition), RAT_FACING_RIGHT)
+                        + countDeafRats(rats.substring(0, hamelinPosition+1), RAT_FACING_LEFT);
             }
+        }
+
+        private static boolean isHamelinAtTheEnd(String rats) {
+            return searchHamelin(rats) == rats.length()-1;
         }
 
         private static String normalizeSpaces(String rats) {
@@ -58,7 +66,11 @@ public class DeafRatsOfHamelinShould {
         }
 
         private static boolean isHamelinAtTheFront(String rats) {
-            return rats.indexOf(HAMLET) == 0;
+            return searchHamelin(rats) == 0;
+        }
+
+        private static int searchHamelin(String rats) {
+            return rats.indexOf(HAMLET);
         }
 
         private static int countDeafRats(String rats, String deafRat){
