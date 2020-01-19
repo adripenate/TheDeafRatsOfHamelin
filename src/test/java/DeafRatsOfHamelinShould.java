@@ -52,9 +52,13 @@ public class DeafRatsOfHamelinShould {
                 return countDeafRats(rats, RAT_FACING_LEFT);
             }else{
                 int hamelinPosition = searchHamelin(rats);
-                return countDeafRats(rats.substring(hamelinPosition), RAT_FACING_RIGHT)
-                        + countDeafRats(rats.substring(0, hamelinPosition+1), RAT_FACING_LEFT);
+                return countDeafRats(rats, hamelinPosition);
             }
+        }
+
+        private static int countDeafRats(String rats, int hamelinPosition) {
+            return countDeafRats(rats.substring(hamelinPosition), RAT_FACING_RIGHT)
+                    + countDeafRats(rats.substring(0, hamelinPosition+1), RAT_FACING_LEFT);
         }
 
         private static boolean isHamelinAtTheEnd(String rats) {
