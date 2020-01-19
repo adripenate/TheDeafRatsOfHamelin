@@ -40,11 +40,16 @@ public class DeafRatsOfHamelinShould {
 
         public static int count(String rats) {
             if (!thereAreAny(rats)) return NO_DEAF_RATS;
+            rats = normalizeSpaces(rats);
             if(isHamelinAtTheFront(rats)){
-                return countDeafRats(rats.replace(" ", ""), RAT_FACING_RIGHT);
+                return countDeafRats(rats, RAT_FACING_RIGHT);
             }else{
-                return countDeafRats(rats.replace(" ", ""), RAT_FACING_LEFT);
+                return countDeafRats(rats, RAT_FACING_LEFT);
             }
+        }
+
+        private static String normalizeSpaces(String rats) {
+            return rats.replace(" ", "");
         }
 
         private static boolean isHamelinAtTheFront(String rats) {
