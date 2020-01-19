@@ -38,7 +38,7 @@ public class DeafRatsOfHamelinShould {
             if(isHamelinAtTheFront(rats)){
                 return rats.contains("0~") ? NO_DEAF_RATS : 1;
             }else{
-                return NO_DEAF_RATS;
+                return rats.contains("~0") ? NO_DEAF_RATS : 1;
             }
         }
 
