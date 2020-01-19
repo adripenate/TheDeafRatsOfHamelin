@@ -29,8 +29,7 @@ public class DeafRatsOfHamelinShould {
         public static int count(String rats) {
             if (!thereAreAny(rats)) return 0;
             if(rats.indexOf("P") == 0){
-                if (rats.contains("0~")) return 0;
-                return 1;
+                return rats.contains("0~") ? 0 : 1;
             }else{
                 return 0;
             }
