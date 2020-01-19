@@ -33,7 +33,7 @@ public class DeafRatsOfHamelinShould {
     }
 
     @Test
-    public void be_two_when_they_are_facing_right_and_hamlet_is_in_middle() {
+    public void be_two_when_some_are_not_facing_hamlet_at_the_middle() {
         assertThat(DeafRatsOfHamelin.count("~0~0P~0~0")).isEqualTo(2);
     }
 
