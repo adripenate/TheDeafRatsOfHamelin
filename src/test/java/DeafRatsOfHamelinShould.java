@@ -26,6 +26,11 @@ public class DeafRatsOfHamelinShould {
         assertThat(DeafRatsOfHamelin.count("P ~0~0")).isEqualTo(2);
     }
 
+    @Test
+    public void be_zero_when_they_are_not_facing_hamelin() {
+        assertThat(DeafRatsOfHamelin.count("P 0~0~")).isEqualTo(0);
+    }
+
     private static class DeafRatsOfHamelin {
         public static final int NO_DEAF_RATS = 0;
 
