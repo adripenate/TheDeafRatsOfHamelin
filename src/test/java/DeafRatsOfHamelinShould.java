@@ -67,7 +67,7 @@ public class DeafRatsOfHamelinShould {
         }
 
         private static boolean thereAreAny(String rats) {
-            return rats.contains("0~") || rats.contains(RAT_FACING_RIGHT);
+            return rats.contains(RAT_FACING_LEFT) || rats.contains(RAT_FACING_RIGHT);
         }
     }
 }
