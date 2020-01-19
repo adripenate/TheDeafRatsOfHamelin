@@ -10,25 +10,16 @@ public class DeafRatsOfHamelinShould {
     }
 
     @Test
-    public void be_one_when_it_is_facing_right() {
+    public void be_one_when_it_is_not_facing_hamelin() {
         assertThat(DeafRatsOfHamelin.count("P ~0")).isEqualTo(1);
-    }
-
-    @Test
-    public void be_zero_when_it_is_facing_left() {
-        assertThat(DeafRatsOfHamelin.count("P 0~")).isEqualTo(0);
-    }
-
-    @Test
-    public void be_zero_when_it_is_facing_right() {
-        assertThat(DeafRatsOfHamelin.count("~0 P")).isEqualTo(0);
-    }
-
-    @Test
-    public void be_one_when_it_is_facing_left() {
         assertThat(DeafRatsOfHamelin.count("0~ P")).isEqualTo(1);
     }
 
+    @Test
+    public void be_zero_when_it_is_facing_hamelin() {
+        assertThat(DeafRatsOfHamelin.count("P 0~")).isEqualTo(0);
+        assertThat(DeafRatsOfHamelin.count("~0 P")).isEqualTo(0);
+    }
 
     private static class DeafRatsOfHamelin {
         public static final int NO_DEAF_RATS = 0;
