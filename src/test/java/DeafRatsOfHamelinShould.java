@@ -19,6 +19,12 @@ public class DeafRatsOfHamelinShould {
         assertThat(DeafRatsOfHamelin.count("P 0~")).isEqualTo(0);
     }
 
+    @Test
+    public void be_zero_when_it_is_facing_right() {
+        assertThat(DeafRatsOfHamelin.count("~0 P")).isEqualTo(0);
+    }
+
+
     private static class DeafRatsOfHamelin {
         public static int count(String rats) {
             if (isThereAnyRat(rats)) return 0;
