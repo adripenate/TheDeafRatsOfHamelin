@@ -26,12 +26,14 @@ public class DeafRatsOfHamelinShould {
 
 
     private static class DeafRatsOfHamelin {
+        public static final int NO_DEAF_RATS = 0;
+
         public static int count(String rats) {
-            if (!thereAreAny(rats)) return 0;
+            if (!thereAreAny(rats)) return NO_DEAF_RATS;
             if(rats.indexOf("P") == 0){
-                return rats.contains("0~") ? 0 : 1;
+                return rats.contains("0~") ? NO_DEAF_RATS : 1;
             }else{
-                return 0;
+                return NO_DEAF_RATS;
             }
         }
 
