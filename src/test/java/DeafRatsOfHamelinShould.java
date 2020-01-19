@@ -79,12 +79,20 @@ public class DeafRatsOfHamelinShould {
 
         private static int countDeafRats(String rats, String deafRat){
             int deafRats = 0;
-            while (!rats.equals(HAMLET)){
-                String rat = (deafRat.equals(RAT_FACING_RIGHT))? rats.substring(1, 3) : rats.substring(0, 2);
+            while (hamletIsNotAlone(rats)){
+                String rat = getFirstRat(rats, deafRat);
                 if (rat.equals(deafRat)) deafRats++;
                 rats = rats.replaceFirst(rat, "");
             }
             return deafRats;
+        }
+
+        private static String getFirstRat(String rats, String deafRat) {
+            return (deafRat.equals(RAT_FACING_RIGHT))? rats.substring(1, 3) : rats.substring(0, 2);
+        }
+
+        private static boolean hamletIsNotAlone(String rats) {
+            return !rats.equals(HAMLET);
         }
 
         private static boolean thereAreAny(String rats) {
