@@ -33,32 +33,34 @@ public class DeafRatsOfHamelinShould {
 
     private static class DeafRatsOfHamelin {
         public static final int NO_DEAF_RATS = 0;
+        public static final String HAMLET = "P";
+        public static final String RAT_FACING_RIGHT = "~0";
 
         public static int count(String rats) {
             if (!thereAreAny(rats)) return NO_DEAF_RATS;
             if(isHamelinAtTheFront(rats)){
                 return countRatsFacingRight(rats.replace(" ", ""));
             }else{
-                return rats.contains("~0") ? NO_DEAF_RATS : 1;
+                return rats.contains(RAT_FACING_RIGHT) ? NO_DEAF_RATS : 1;
             }
         }
 
         private static boolean isHamelinAtTheFront(String rats) {
-            return rats.indexOf("P") == 0;
+            return rats.indexOf(HAMLET) == 0;
         }
 
         private static int countRatsFacingRight(String rats){
             int deafRats = 0;
-            while (!rats.equals("P")){
+            while (!rats.equals(HAMLET)){
                 String rat = rats.substring(1, 3);
-                if (rat.equals("~0"))deafRats++;
+                if (rat.equals(RAT_FACING_RIGHT)) deafRats++;
                 rats = rats.replaceFirst(rat, "");
             }
             return deafRats;
         }
 
         private static boolean thereAreAny(String rats) {
-            return rats.contains("0~") || rats.contains("~0");
+            return rats.contains("0~") || rats.contains(RAT_FACING_RIGHT);
         }
     }
 }
