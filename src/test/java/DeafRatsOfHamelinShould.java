@@ -27,7 +27,7 @@ public class DeafRatsOfHamelinShould {
     }
 
     @Test
-    public void be_zero_when_they_are_not_facing_hamelin() {
+    public void be_zero_when_they_are_facing_hamelin() {
         assertThat(DeafRatsOfHamelin.count("P 0~0~")).isEqualTo(0);
     }
 
@@ -37,7 +37,7 @@ public class DeafRatsOfHamelinShould {
         public static int count(String rats) {
             if (!thereAreAny(rats)) return NO_DEAF_RATS;
             if(isHamelinAtTheFront(rats)){
-                return countRatsFacingRight(rats);
+                return countRatsFacingRight(rats.replace(" ", ""));
             }else{
                 return rats.contains("~0") ? NO_DEAF_RATS : 1;
             }
@@ -49,9 +49,10 @@ public class DeafRatsOfHamelinShould {
 
         private static int countRatsFacingRight(String rats){
             int deafRats = 0;
-            while (rats.contains("~0")){
-                deafRats++;
-                rats = rats.replaceFirst("~0", "");
+            while (!rats.equals("P")){
+                String rat = rats.substring(1, 3);
+                if (rat.equals("~0"))deafRats++;
+                rats = rats.replaceFirst(rat, "");
             }
             return deafRats;
         }
