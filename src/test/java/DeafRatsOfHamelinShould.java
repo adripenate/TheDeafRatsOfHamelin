@@ -81,13 +81,13 @@ public class DeafRatsOfHamelinShould {
             int deafRats = 0;
             while (hamletIsNotAlone(rats)){
                 String rat = getFirstRat(rats);
-                if (ratIsPayingAttention(deafRat, rat)) deafRats++;
+                if (ratIsNotPayingAttention(rat, deafRat)) deafRats++;
                 rats = rats.replaceFirst(rat, "");
             }
             return deafRats;
         }
 
-        private static boolean ratIsPayingAttention(String deafRat, String rat) {
+        private static boolean ratIsNotPayingAttention(String rat, String deafRat) {
             return rat.equals(deafRat);
         }
 
