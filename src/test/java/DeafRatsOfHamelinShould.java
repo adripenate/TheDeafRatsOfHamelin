@@ -24,16 +24,12 @@ public class DeafRatsOfHamelinShould {
     @Test
     public void be_two_when_they_are_not_facing_hamelin() {
         assertThat(DeafRatsOfHamelin.count("P ~0~0")).isEqualTo(2);
+        assertThat(DeafRatsOfHamelin.count("0~ 0~P")).isEqualTo(2);
     }
 
     @Test
     public void be_zero_when_they_are_facing_hamelin() {
         assertThat(DeafRatsOfHamelin.count("P 0~0~")).isEqualTo(0);
-    }
-
-    @Test
-    public void be_two_when_they_are_facing_left() {
-        assertThat(DeafRatsOfHamelin.count("0~ 0~P")).isEqualTo(2);
     }
 
     private static class DeafRatsOfHamelin {
