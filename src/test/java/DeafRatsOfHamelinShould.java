@@ -30,11 +30,15 @@ public class DeafRatsOfHamelinShould {
 
         public static int count(String rats) {
             if (!thereAreAny(rats)) return NO_DEAF_RATS;
-            if(rats.indexOf("P") == 0){
+            if(isHamelinAtTheFront(rats)){
                 return rats.contains("0~") ? NO_DEAF_RATS : 1;
             }else{
                 return NO_DEAF_RATS;
             }
+        }
+
+        private static boolean isHamelinAtTheFront(String rats) {
+            return rats.indexOf("P") == 0;
         }
 
         private static boolean thereAreAny(String rats) {
