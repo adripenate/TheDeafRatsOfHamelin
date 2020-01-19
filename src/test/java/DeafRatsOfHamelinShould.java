@@ -80,7 +80,7 @@ public class DeafRatsOfHamelinShould {
         private static int countDeafRats(String rats, String deafRat){
             int deafRats = 0;
             while (hamletIsNotAlone(rats)){
-                String rat = getFirstRat(rats, deafRat);
+                String rat = getFirstRat(rats);
                 if (ratIsPayingAttention(deafRat, rat)) deafRats++;
                 rats = rats.replaceFirst(rat, "");
             }
@@ -91,8 +91,8 @@ public class DeafRatsOfHamelinShould {
             return rat.equals(deafRat);
         }
 
-        private static String getFirstRat(String rats, String deafRat) {
-            return (deafRat.equals(RAT_FACING_RIGHT))? rats.substring(1, 3) : rats.substring(0, 2);
+        private static String getFirstRat(String rats) {
+            return (isHamelinAtTheFront(rats))? rats.substring(1, 3) : rats.substring(0, 2);
         }
 
         private static boolean hamletIsNotAlone(String rats) {
